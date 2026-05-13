@@ -12,10 +12,10 @@
 
 /**
  * Returns the size of the file.
- * @param file_name The name of the file.
- * @return off_t The file size in bytes.
+ * @param file_path The file patj.
+ * @return The file size in bytes.
  */
-off_t get_file_size(const char* file_name);
+off_t get_file_size(const char* file_path);
 
 /**
  * Opens a file stream for a given path and mode.
