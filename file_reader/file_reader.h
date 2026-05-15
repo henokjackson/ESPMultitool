@@ -12,7 +12,7 @@
 
 /**
  * Returns the size of the file.
- * @param file_path The file patj.
+ * @param file_path The file path.
  * @return The file size in bytes.
  */
 off_t get_file_size(const char* file_path);
