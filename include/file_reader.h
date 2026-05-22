@@ -12,10 +12,10 @@
 
 /**
  * Returns the size of the file.
- * @param file_path The file path.
+ * @param file_stream The file stream.
  * @return The file size in bytes.
  */
-off_t get_file_size(const char* file_path);
+off_t get_file_size(FILE* file_stream);
 
 /**
  * Opens a file stream for a given path and mode.
@@ -37,6 +37,6 @@ bool close_file_stream(FILE** file_stream_ptr);
  * @param file_stream The file stream object.
  * @return A byte read from the file stream.
  */
-int read_byte(FILE* file_stream);
+unsigned char read_byte(FILE* file_stream);
 
 #endif

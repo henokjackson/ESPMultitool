@@ -4,18 +4,24 @@
  * @license Licensed under the MIT License.
  */
 
-#include "file_reader.h"
+#include "../include/file_reader.h"
 #include <sys/stat.h>
 #include <stdio.h>
 
-off_t get_file_size(const char* file_path) {
-    if (file_path == nullptr) {
-        printf("Invalid arguments passed !");
+off_t get_file_size(FILE* file_stream) {
+    if (file_stream == nullptr) {
+        printf("Invalid argument passed !");
         return -1;
     }
+
+    const int file_descriptor = fileno(file_stream);
+    if (file_descriptor == -1) {
+        perror("Error opening file !");
+    }
+
     struct stat file_stat;
-    int const stat_status = stat(file_path, &file_stat);
-    if (stat_status == -1) {
+    int const stat_status = fstat(file_descriptor, &file_stat);
+    if (stat_status != 0) {
         perror("Error opening file !");
         return -1;
     }
@@ -51,7 +57,7 @@ bool close_file_stream(FILE** file_stream_ptr) {
     return is_closed;
 }
 
-int read_byte(FILE* file_stream) {
+unsigned char read_byte(FILE* file_stream) {
     if (file_stream == nullptr) {
         printf("Invalid arguments passed !");
         return -1;
@@ -63,5 +69,6 @@ int read_byte(FILE* file_stream) {
     }
 
     const unsigned char byte = (unsigned char)ascii_byte;
+
     return byte;
 }
