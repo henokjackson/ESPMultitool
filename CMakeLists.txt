@@ -8,8 +8,7 @@ add_executable(esp8266_multitool
         src/main.c
         src/file_reader.c
         src/hexdump_viewer.c
-        src/commandline_parser.c
-        include/commandline_parser.h)
+        src/commandline_parser.c)
 
 target_include_directories(esp8266_multitool PUBLIC include)
 
