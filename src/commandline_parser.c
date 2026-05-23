@@ -12,9 +12,9 @@
 #define MAX_COMMAND_LINE_ARGS_COUNT 10
 #define HEX_VIEW_ARG_STR "--hexview"
 
-bool extern g_hex_view = false;
-bool extern g_file_path_set = false;
-char extern g_file_path[500];
+bool g_hex_view = false;
+bool g_file_path_set = false;
+char g_file_path[500];
 
 void show_commandline_help() {
     printf("Invalid arguments !");
@@ -24,7 +24,7 @@ void show_commandline_help() {
     printf("\t\t--hexview filename\tGenerates the maximum possible fibonacci number that can be generated with the given heap.\n");
 }
 
-void extract_commandline_arguments(const int argc, const char** argv) {
+void extract_commandline_arguments(const int argc, const char* argv[]) {
     if (argc > MAX_COMMAND_LINE_ARGS_COUNT) {
         printf("Too many arguments !\n");
         return;
