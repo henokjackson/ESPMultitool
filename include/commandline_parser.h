@@ -11,6 +11,6 @@ extern bool g_hex_view;
 extern bool g_file_path_set;
 extern char g_file_path[500];
 
-void extract_commandline_arguments(int argc, const char** argv);
+void extract_commandline_arguments(int argc, char** argv);
 
 #endif //ESP8266_MULTITOOL_COMMANDLINE_PARSER_H

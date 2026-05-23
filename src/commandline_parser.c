@@ -24,7 +24,7 @@ void show_commandline_help() {
     printf("\t\t--hexview filename\tGenerates the maximum possible fibonacci number that can be generated with the given heap.\n");
 }
 
-void extract_commandline_arguments(const int argc, const char* argv[]) {
+void extract_commandline_arguments(int argc, char* argv[]) {
     if (argc > MAX_COMMAND_LINE_ARGS_COUNT) {
         printf("Too many arguments !\n");
         return;
