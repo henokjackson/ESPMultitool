@@ -1,6 +1,7 @@
 /**
  * @file commandline_parser.c
- * @copyright Copyright(c) 2026 Henok Jackson. All rights reserved.
+ * @author Henok Jackson
+ * @copyright Copyright(c) 2026.
  * @license Licensed under the MIT License.
  */
 
