@@ -35,7 +35,8 @@ unsigned char convert_byte_to_ascii_char (unsigned char byte) {
     }
 }
 
-char* generate_hex_address(const unsigned long int address_hex_digit_count,
+char* generate_hex_address(
+    const unsigned long int address_hex_digit_count,
     unsigned long int index,
     char* address,
     const char* address_hex_prefix,
@@ -62,7 +63,7 @@ char* generate_hex_address(const unsigned long int address_hex_digit_count,
     address[1] = address_hex_prefix[1];
     for (unsigned long int i = address_length - 1; i > 1; i--) {
         if (index != 0) {
-            address[i] = index % 10;
+            address[i] = index % 10 + '0';
             index = index / 10;
         } else {
             address[i] = '0';
@@ -99,7 +100,7 @@ void render_hexdump(FILE* file_stream) {
         byte = read_byte(file_stream);
         printf("%s\t%x\t|%c|\n",
             generate_hex_address(address_hex_digit_count,
-                file_size,
+                i,
                 address,
                 address_hex_prefix,
                 address_length),
