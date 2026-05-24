@@ -30,7 +30,7 @@ void extract_commandline_arguments(int argc, char* argv[]) {
         return;
     }
 
-    for (int i = 0; i < argc; i++) {
+    for (int i = 1; i < argc; i++) {
         bool command_invalid = true;
 
         if (g_hex_view == false && strcmp(HEX_VIEW_ARG_STR, argv[i]) == 0) {
@@ -42,6 +42,8 @@ void extract_commandline_arguments(int argc, char* argv[]) {
             argv[i][0] != '-' &&
             argv[i][1] != '-') {
             strcpy(g_file_path, argv[i]);
+            g_file_path_set = true;
+            command_invalid = false;
         }
 
         if (command_invalid == true) {
