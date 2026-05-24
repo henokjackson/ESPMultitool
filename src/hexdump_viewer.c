@@ -18,7 +18,7 @@ unsigned long int get_hex_address_range(unsigned long long int file_size) {
     }
 
     unsigned long int hex_digit_count = 1;
-    while (file_size % 16 != 0) {
+    while (file_size != 0 && file_size != 1) {
         hex_digit_count++;
         file_size /= 16;
     }
@@ -97,7 +97,7 @@ void render_hexdump(FILE* file_stream) {
     // Read file byte by byte.
     for (unsigned long int i = 0; i < file_size; i++) {
         byte = read_byte(file_stream);
-        printf("%s\t%x\t|%c|",
+        printf("%s\t%x\t|%c|\n",
             generate_hex_address(address_hex_digit_count,
                 file_size,
                 address,
